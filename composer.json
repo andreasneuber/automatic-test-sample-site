@@ -4,7 +4,7 @@
   "require": {
     "symfony/http-foundation": "^5.4",
     "symfony/console": "^5.4",
-    "twig/twig": "^3.4",
+    "twig/twig": "^3.7",
     "nekman/luhn-algorithm": "^5.0"
   },
   "autoload": {
