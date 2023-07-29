@@ -33,3 +33,7 @@ php bin/console create:view <name>
 ```
 3. In new controller file adjust the name of template - in method `renderView`
 4. The new page can now be called via `index.php?action=<name>` (name = basically controller class name without `Controller`)
+
+
+## PHP version
+Goal is to keep things compatible with the latest released stable major PHP version.
