@@ -11,6 +11,7 @@ cd automatic-test-sample-site
 composer install
 composer dump-autoload -o
 ```
+Composer lock file is optimized for PHP 8.2
 
 ## Run test site
 ```
