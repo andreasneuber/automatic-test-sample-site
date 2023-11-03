@@ -3,7 +3,7 @@ FROM composer:latest
 # Set the work directory for the application
 WORKDIR /home
 
-# COPY the needed files to the app folder in Docker image
+# COPY the needed files to Docker image
 COPY composer.json /home/
 COPY index.php /home/
 COPY bin/ /home/bin/
