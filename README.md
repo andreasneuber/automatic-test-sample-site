@@ -4,7 +4,7 @@ A site you can use to try out things with Automatic Test frameworks.
 
 Of course, one can fire tests on production sites out there on the world wide web. But not good practice and very likely not much appreciated by site owners :-)
 
-## Setup
+## Setup & start test site - directly on your machine
 After `git clone` run this...
 ```
 cd automatic-test-sample-site
@@ -13,7 +13,7 @@ composer dump-autoload -o
 ```
 Composer lock file is optimized for PHP 8.2
 
-## Run test site
+To start site...
 ```
 cd automatic-test-sample-site
 php -S localhost:8000
@@ -21,7 +21,19 @@ php -S localhost:8000
 then open in browser: `http://localhost:8000`
 
 
-## Add new controller and view - steps
+## Setup & start test site - Docker
+After `git clone` and navigating inside `automatic-test-sample-site` directory build the container...
+```
+docker build --no-cache -t sample-site .
+```
+
+To start container...
+```
+docker run --rm -p 8000:8000 -it sample-site:latest php -S 0.0.0.0:8000
+```
+then open in browser: `http://localhost:8000`
+
+## Development - Add new controller and view - steps
 1. Make sure you are in the root dir of the framework
 2. Then run these console commands
 
