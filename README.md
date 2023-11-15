@@ -29,7 +29,7 @@ docker build --no-cache -t sample-site .
 
 To start container...
 ```
-docker run --rm -p 8000:8000 -it sample-site:latest php -S 0.0.0.0:8000
+docker run -p 8000:8000 -it sample-site:latest php -S 0.0.0.0:8000
 ```
 then open in browser: `http://localhost:8000`
 
