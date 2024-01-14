@@ -2,10 +2,12 @@
   "name": "andreasneuber/automatic-test-sample-site",
   "description": "A site one can use to try out things with Automatic Test frameworks",
   "require": {
-    "symfony/http-foundation": "^6.3",
-    "symfony/console": "^6.3",
-    "twig/twig": "^3.7",
-    "nekman/luhn-algorithm": "^5.0"
+    "symfony/http-foundation": "^6.4",
+    "symfony/console": "^6.4",
+    "twig/twig": "^3.8",
+    "nekman/luhn-algorithm": "^5.0",
+    "ext-json": "*",
+    "ext-pdo": "*"
   },
   "autoload": {
     "psr-4": {

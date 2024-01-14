@@ -1,4 +1,4 @@
-# automatic-test-sample-site
+# Automatic Test Sample Site
 ## Purpose
 A site you can use to try out things with Automatic Test frameworks.
 
@@ -50,3 +50,12 @@ php bin/console create:view <name>
 
 ## PHP version
 Goal is to keep things compatible with the latest released stable major PHP version.
+
+## API
+Site has also an API (very simple one and works only without Docker). You can use:
+- `http://localhost:8000/api/allusers`
+- `http://localhost:8000/api/user/1` or `http://localhost:8000/api/user/2`
+
+### Docu
+- https://medium.com/@miladev95/how-to-make-crud-rest-api-in-php-with-mysql-5063ae4cc89
+- https://www.a2hosting.com/kb/developer-corner/sqlite/connect-to-sqlite-using-php/
