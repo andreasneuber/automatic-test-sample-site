@@ -21,7 +21,7 @@ php -S localhost:8000
 then open in browser: `http://localhost:8000`
 
 
-## Setup & start test site - Docker
+## Setup & start test site - Docker, locally
 After `git clone` and navigating inside `automatic-test-sample-site` directory build the container...
 ```
 docker build --no-cache -t sample-site .
@@ -32,6 +32,28 @@ To start container...
 docker run -p 8000:8000 -it sample-site:latest php -S 0.0.0.0:8000
 ```
 then open in browser: `http://localhost:8000`
+
+## Build & Push to Gitlab Container Registry
+As an example we want to make this test site container available for https://github.com/andreasneuber/ruby-cucumber-selenium-example 
+code located now on Gitlab.
+```
+// Login with Username and Password
+docker login registry.gitlab.com
+
+// Build
+ docker build --no-cache -t registry.gitlab.com/{your-username}/ruby-cucumber-selenium-framework/automatic-test-sample-site:0.01 .
+
+// Push
+docker push registry.gitlab.com/{your-username}/ruby-cucumber-selenium-framework/automatic-test-sample-site:0.01
+
+// Expected result
+We see the image on Gitlab.com > Deploy > Container Regsitry
+```
+
+See also:
+- https://www.youtube.com/watch?v=ZJZGJTM23z0
+- https://www.youtube.com/watch?v=fymJsLIwrFU
+
 
 ## Development - Add new controller and view - steps
 1. Make sure you are in the root dir of the framework
