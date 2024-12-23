@@ -4,7 +4,7 @@
   "require": {
     "symfony/http-foundation": "^6.4",
     "symfony/console": "^6.4",
-    "twig/twig": "^3.14",
+    "twig/twig": "^v3.17.0",
     "nekman/luhn-algorithm": "^5.0",
     "ext-json": "*",
     "ext-pdo": "*"
