@@ -16,7 +16,7 @@ class employeeController extends base {
 		$this->data = array();
 	}
 
-	public function maybeDisplayEmployeeDetails() {
+	public function maybeDisplayEmployeeDetails(): void {
 		$this->data['show_search_results'] = '0';
 
 		$find = Request::createFromGlobals()->get( 'find' );

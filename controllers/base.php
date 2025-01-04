@@ -30,10 +30,9 @@ class base {
 	 * @throws LoaderError
 	 */
 	protected function renderView( $template, $data ): void {
-		$loader               = new FilesystemLoader( dirname( __DIR__ ) . '/views' );
-		$twig                 = new Environment( $loader, [ 'debug' => true ] );
+		$loader = new FilesystemLoader( dirname( __DIR__ ) . '/views' );
+		$twig   = new Environment( $loader, [ 'debug' => true ] );
 		echo $twig->render( $template . '.twig', $data );
-//		echo $twig->render( $template . '.html', $data );
 
 		if ( setup::DEBUG ) {
 			$this->renderDebugData();

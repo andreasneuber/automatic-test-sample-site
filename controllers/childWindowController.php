@@ -1,6 +1,10 @@
 <?php
 namespace Controllers;
 
+use Twig\Error\LoaderError;
+use Twig\Error\RuntimeError;
+use Twig\Error\SyntaxError;
+
 class childWindowController extends base {
 
 	private array $data;
@@ -9,7 +13,13 @@ class childWindowController extends base {
 		$this->data = array();
 	}
 
-	public function run(){
+    /**
+     * @throws RuntimeError
+     * @throws SyntaxError
+     * @throws LoaderError
+     */
+    public function run(): void
+    {
 		$this->renderView( 'child-window' , $this->data );
 	}
 }

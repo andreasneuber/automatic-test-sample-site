@@ -1,6 +1,10 @@
 <?php
 namespace Controllers;
 
+use Twig\Error\LoaderError;
+use Twig\Error\RuntimeError;
+use Twig\Error\SyntaxError;
+
 class form1Controller extends base {
 
 	private array $data;
@@ -9,7 +13,12 @@ class form1Controller extends base {
 		$this->data = array();
 	}
 
-	public function run(){
+	/**
+	 * @throws SyntaxError
+	 * @throws RuntimeError
+	 * @throws LoaderError
+	 */
+	public function run(): void {
 		$this->renderView( 'form-1' , $this->data );
 	}
 }
