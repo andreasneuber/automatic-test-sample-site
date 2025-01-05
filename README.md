@@ -88,3 +88,4 @@ Site has also an API (very simple one and works only without Docker). You can us
 ### Docu
 - https://medium.com/@miladev95/how-to-make-crud-rest-api-in-php-with-mysql-5063ae4cc89
 - https://www.a2hosting.com/kb/developer-corner/sqlite/connect-to-sqlite-using-php/
+- https://stackoverflow.com/questions/22049212/copying-files-from-docker-container-to-host
