@@ -34,31 +34,38 @@ docker run -p 8000:8000 -it sample-site:latest php -S 0.0.0.0:8000
 then open in browser: `http://localhost:8000`
 
 ## Build & Push to Gitlab Container Registry
-As an example, we want to make this test site container available for https://github.com/andreasneuber/ruby-cucumber-selenium-example
-code located now on Gitlab.
 
-PART 1: Upload application under test (our test site here) to Gitlab Container Registry:
+PART 1: Copy repo here into a GitLab repo
+
+PART 2: Create container image of repo and push it to the GitLab Container Registry with this `.gitlab-ci.yml`:
 ```
-// Login with Username and Password
-docker login registry.gitlab.com
+image: docker:latest
 
-// Build
- docker build --no-cache -t registry.gitlab.com/{your-username}/ruby-cucumber-selenium-framework/automatic-test-sample-site:0.01 .
+services:
+  - docker:dind
 
-// Push
-docker push registry.gitlab.com/{your-username}/ruby-cucumber-selenium-framework/automatic-test-sample-site:0.01
+variables:
+  DOCKER_DRIVER: overlay2
+  DOCKER_TLS_CERTDIR: ""
 
-// Expected result
-We see the image on Gitlab.com > Deploy > Container Registry
+stages:
+  - build
+
+build_image:
+  stage: build
+  script:
+    - docker build -t $CI_REGISTRY_IMAGE:latest .
+    - docker login -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN $CI_REGISTRY
+    - docker push $CI_REGISTRY_IMAGE:latest
+
 ```
 
-See also:
+PART 3: Define pipeline jobs which starts test site container, and then the automated UI tests
+
+See example here: https://github.com/andreasneuber/docker-based-e2e-tests/blob/master/.gitlab-ci.yml
+
+Additional references:
 - https://www.youtube.com/watch?v=ZJZGJTM23z0
-
-
-PART 2: Define pipeline jobs which start test site container, and then the automated UI tests [WIP]
-
-See also:
 - https://www.youtube.com/watch?v=fymJsLIwrFU
 
 
