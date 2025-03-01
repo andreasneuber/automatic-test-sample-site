@@ -1,10 +1,10 @@
 {
   "name": "andreasneuber/automatic-test-sample-site",
-  "description": "A site one can use to try out things with Automatic Test frameworks",
+  "description": "A site one can use to try out things with Automated Test frameworks",
   "require": {
     "symfony/http-foundation": "^6.4",
     "symfony/console": "^6.4",
-    "twig/twig": "^v3.19.0",
+    "twig/twig": "^v3.20.0",
     "nekman/luhn-algorithm": "^5.0",
     "ext-json": "*",
     "ext-pdo": "*"

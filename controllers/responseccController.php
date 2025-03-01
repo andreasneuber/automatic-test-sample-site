@@ -2,6 +2,7 @@
 
 namespace Controllers;
 
+use Nekman\LuhnAlgorithm\Contract\LuhnAlgorithmExceptionInterface;
 use Nekman\LuhnAlgorithm\LuhnAlgorithmFactory;
 use Nekman\LuhnAlgorithm\Number;
 
@@ -19,7 +20,10 @@ class responseccController extends base {
 		$this->data['cardnumber']      = trim( $_POST['cardnumber'] );
 	}
 
-	public function luhnCheck() {
+	/**
+	 * @throws LuhnAlgorithmExceptionInterface
+	 */
+	public function luhnCheck(): void {
 		$luhn   = LuhnAlgorithmFactory::create();
 		$number = Number::fromString( $this->data['cardnumber'] );
 
