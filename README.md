@@ -1,8 +1,6 @@
 # Automatic Test Sample Site
 ## Purpose
-A site you can use to try out things with Automatic Test frameworks.
-
-Of course, one can fire tests on production sites out there on the world wide web. But not good practice and very likely not much appreciated by site owners :-)
+A site you can use to try out things with Automated Test frameworks.
 
 ## Setup & start test site - directly on your machine
 After `git clone` run this...
