@@ -20,12 +20,12 @@ then open in browser: `http://localhost:8000`
 
 
 ## Setup & start test site - Docker, locally
-After `git clone` and navigating inside `automatic-test-sample-site` directory build the container...
+After `git clone` and navigating inside `automatic-test-sample-site` directory build the image...
 ```
 docker build --no-cache -t sample-site .
 ```
 
-To start container...
+To start a container...
 ```
 docker run -p 8000:8000 -it sample-site:latest php -S 0.0.0.0:8000
 ```
