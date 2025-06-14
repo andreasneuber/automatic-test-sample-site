@@ -1,20 +1,17 @@
 FROM composer:latest
 
-# Set the work directory for the application
-WORKDIR /home
+WORKDIR /home/app
 
-# COPY the needed files to Docker image
-COPY composer.json /home/
-COPY index.php /home/
-COPY bin/ /home/bin/
-COPY commands/ /home/commands/
-COPY config/ /home/config/
-COPY controllers/ /home/controllers/
-COPY views/ /home/views/
+COPY composer.json /home/app/
+COPY index.php /home/app/
+COPY bin/ /home/app/bin/
+COPY commands/ /home/app/commands/
+COPY config/ /home/app/config/
+COPY controllers/ /home/app/controllers/
+COPY views/ /home/app/views/
 
-# Install the dependencies
-RUN composer install
-RUN composer dump-autoload -o
+RUN composer install --no-dev --optimize-autoloader
 
-# Expose port 8000
 EXPOSE 8000
+
+CMD ["php", "-S", "0.0.0.0:8000", "-t", "/home/app"]
