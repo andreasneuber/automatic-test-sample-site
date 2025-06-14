@@ -51,14 +51,16 @@ stages:
 
 build_image:
   stage: build
+  before_script:
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_JOB_TOKEN" "$CI_REGISTRY"
   script:
     - docker build -t $CI_REGISTRY_IMAGE:latest .
-    - docker login -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN $CI_REGISTRY
+    - docker tag $CI_REGISTRY_IMAGE:latest $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME
     - docker push $CI_REGISTRY_IMAGE:latest
-
+    - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME
 ```
 
-PART 3: Define pipeline jobs which starts test site container, and then the automated UI tests
+PART 3: Define pipeline jobs that start the test site container, followed by the automated UI tests.
 
 See example here: https://github.com/andreasneuber/docker-based-e2e-tests/blob/master/.gitlab-ci.yml
 
